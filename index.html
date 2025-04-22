@@ -4,10 +4,19 @@
   <meta charset="UTF-8">
   <title>Utku's Happiness Survey</title>
   <style>
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
       font-family: sans-serif;
-      text-align: center;
       background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content {
+      flex: 1;
+      text-align: center;
       padding: 50px;
     }
 
@@ -51,37 +60,46 @@
       font-weight: bold;
       color: #007700;
     }
+
+    .footer-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
   </style>
 </head>
 <body>
-  <h1 class="title">Utkumetre</h1>
-  <h1>Merhaba Utku! Günün nasıldı?</h1>
-  <p>Gününü puanlamak için bir sayıya tıkla:</p>
+  <div class="content">
+    <h1 class="title">Utkumetre</h1>
+    <h1>Merhaba Utku! Günün nasıldı?</h1>
+    <p>Gününü puanlamak için bir sayıya tıkla:</p>
 
-  <div class="buttons" id="buttonContainer"></div>
+    <div class="buttons" id="buttonContainer"></div>
 
-  <div class="thank-you" id="teşekkürler">
-    Puanladığın için teşekkürler!
+    <div class="thank-you" id="teşekkürler">
+      Puanladığın için teşekkürler!
+    </div>
   </div>
 
+  <!-- Full-width image at the bottom, no border or effects -->
+  <img 
+    class="footer-image"
+    src="https://storage.googleapis.com/travel-web-app-1.appspot.com/flamelink/media/Chinstrap%20penguin%20-%20Canva%20-%20ValerieVS.jpg?GoogleAccessId=firebase-adminsdk-g2s60%40travel-web-app-1.iam.gserviceaccount.com&Expires=16725243600&Signature=KM6LHD4pgQLBZBR4FDT64y1%2BcK1Mno1zILFLXtAUf804ffPV6kqABEGgIxYEBAe9PWtgBFvsscRUcgCiLwY%2Bh072mOb66zFGPKzxCjh4g5k%2B4tD5Ib0HZm%2F3gFArU%2B4hvpgIkPlaPBpzbYGQtB09IQLpK2UZS2GkHbyOciIwnmLT4wXuNXmYyqK5%2FnSSXqFhevc3yxVLrrcABrZB371O%2BEWyQ5LWDQcC8H1OOUoUGK7cKIrOxSdu7IEtCHSdSzxCqai8b1Rdoa64JV%2BTaqY83crW7Xzh6z62lWVGtKQT7n0DZGiIZk0uzA7tujP5rC0GZfJm9rAmschyc%2BM6WImngA%3D%3D"
+    alt="Penguen">
+  
   <script>
     const container = document.getElementById('buttonContainer');
     const teşekkürler = document.getElementById('teşekkürler');
 
     const colors = [
-      '#8B0000', // 1 - koyu kırmızı
-      '#B22222',
-      '#DC143C',
-      '#FF4500',
-      '#FFA500', // 5 - turuncu
-      '#9ACD32',
-      '#7CFC00',
-      '#32CD32',
-      '#228B22',
-      '#006400'  // 10 - koyu yeşil
+      '#8B0000', '#B22222', '#DC143C', '#FF4500', '#FFA500',
+      '#9ACD32', '#7CFC00', '#32CD32', '#228B22', '#006400'
     ];
 
-    const scriptURL = "YOUR_WEB_APP_URL_HERE"; // 👈 replace this with your Google Apps Script URL
+    const scriptURL = "YOUR_WEB_APP_URL_HERE"; // 👈 replace this!
 
     for (let i = 1; i <= 10; i++) {
       const btn = document.createElement('button');
@@ -104,15 +122,5 @@
       container.appendChild(btn);
     }
   </script>
-
-  <!-- Image at the bottom -->
-  <div style="margin-top: 40px; text-align: center;">
-    <img 
-      src="https://storage.googleapis.com/travel-web-app-1.appspot.com/flamelink/media/Chinstrap%20penguin%20-%20Canva%20-%20ValerieVS.jpg?GoogleAccessId=firebase-adminsdk-g2s60%40travel-web-app-1.iam.gserviceaccount.com&Expires=16725243600&Signature=KM6LHD4pgQLBZBR4FDT64y1%2BcK1Mno1zILFLXtAUf804ffPV6kqABEGgIxYEBAe9PWtgBFvsscRUcgCiLwY%2Bh072mOb66zFGPKzxCjh4g5k%2B4tD5Ib0HZm%2F3gFArU%2B4hvpgIkPlaPBpzbYGQtB09IQLpK2UZS2GkHbyOciIwnmLT4wXuNXmYyqK5%2FnSSXqFhevc3yxVLrrcABrZB371O%2BEWyQ5LWDQcC8H1OOUoUGK7cKIrOxSdu7IEtCHSdSzxCqai8b1Rdoa64JV%2BTaqY83crW7Xzh6z62lWVGtKQT7n0DZGiIZk0uzA7tujP5rC0GZfJm9rAmschyc%2BM6WImngA%3D%3D" 
-      alt="Penguen" 
-      width="300" 
-      style="border-radius: 10px; box-shadow: 0 0 10px #aaa;">
-  </div>
 </body>
 </html>
-
