@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <title>Utku's Happiness Survey</title>
@@ -48,15 +48,15 @@
   </style>
 </head>
 <body>
-  <h1>How was your day, Utku?</h1>
-  <p>Click a number to rate your happiness:</p>
+  <h1>Merhaba Utku! Günün nasıldı?</h1>
+  <p>Gününü puanlamak için bir sayıya tıkla:</p>
 
   <div class="buttons">
     <!-- JavaScript will generate 10 buttons here -->
   </div>
 
-  <div class="thank-you" id="thankYou">
-    Thank you for your rating!
+  <div class="thank-you" id="teşekkürler">
+    Puanladığın için teşekkürler!
   </div>
 
   <script>
@@ -68,7 +68,7 @@
       btn.textContent = i;
       btn.onclick = () => {
         console.log(`Utku rated: ${i}`);
-        thankYou.style.display = 'block';
+        teşekkürler.style.display = 'block';
       };
       container.appendChild(btn);
     }
