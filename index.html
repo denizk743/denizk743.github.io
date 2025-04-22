@@ -61,13 +61,13 @@
       color: #007700;
     }
 
-    .footer-image {
+    footer {
       width: 100%;
-      max-height: 200px;
-      object-fit: cover;
-      margin: 0;
-      padding: 0;
-      border: none;
+      height: 200px;
+      background-image: url("https://storage.googleapis.com/travel-web-app-1.appspot.com/flamelink/media/Chinstrap%20penguin%20-%20Canva%20-%20ValerieVS.jpg?GoogleAccessId=firebase-adminsdk-g2s60%40travel-web-app-1.iam.gserviceaccount.com&Expires=16725243600&Signature=KM6LHD4pgQLBZBR4FDT64y1%2BcK1Mno1zILFLXtAUf804ffPV6kqABEGgIxYEBAe9PWtgBFvsscRUcgCiLwY%2Bh072mOb66zFGPKzxCjh4g5k%2B4tD5Ib0HZm%2F3gFArU%2B4hvpgIkPlaPBpzbYGQtB09IQLpK2UZS2GkHbyOciIwnmLT4wXuNXmYyqK5%2FnSSXqFhevc3yxVLrrcABrZB371O%2BEWyQ5LWDQcC8H1OOUoUGK7cKIrOxSdu7IEtCHSdSzxCqai8b1Rdoa64JV%2BTaqY83crW7Xzh6z62lWVGtKQT7n0DZGiIZk0uzA7tujP5rC0GZfJm9rAmschyc%2BM6WImngA%3D%3D");
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
     }
   </style>
 </head>
@@ -84,12 +84,9 @@
     </div>
   </div>
 
-  <!-- Penguin image at the bottom -->
-  <img 
-    class="footer-image"
-    src="https://storage.googleapis.com/travel-web-app-1.appspot.com/flamelink/media/Chinstrap%20penguin%20-%20Canva%20-%20ValerieVS.jpg?GoogleAccessId=firebase-adminsdk-g2s60%40travel-web-app-1.iam.gserviceaccount.com&Expires=16725243600&Signature=KM6LHD4pgQLBZBR4FDT64y1%2BcK1Mno1zILFLXtAUf804ffPV6kqABEGgIxYEBAe9PWtgBFvsscRUcgCiLwY%2Bh072mOb66zFGPKzxCjh4g5k%2B4tD5Ib0HZm%2F3gFArU%2B4hvpgIkPlaPBpzbYGQtB09IQLpK2UZS2GkHbyOciIwnmLT4wXuNXmYyqK5%2FnSSXqFhevc3yxVLrrcABrZB371O%2BEWyQ5LWDQcC8H1OOUoUGK7cKIrOxSdu7IEtCHSdSzxCqai8b1Rdoa64JV%2BTaqY83crW7Xzh6z62lWVGtKQT7n0DZGiIZk0uzA7tujP5rC0GZfJm9rAmschyc%2BM6WImngA%3D%3D"
-    alt="Penguen">
-  
+  <!-- Footer with penguin as background -->
+  <footer></footer>
+
   <script>
     const container = document.getElementById('buttonContainer');
     const teşekkürler = document.getElementById('teşekkürler');
