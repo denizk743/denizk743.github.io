@@ -29,14 +29,13 @@
       font-size: 18px;
       border: none;
       border-radius: 50%;
-      background-color: #4caf50;
       color: white;
       cursor: pointer;
-      transition: background-color 0.2s;
+      transition: transform 0.2s;
     }
 
     button:hover {
-      background-color: #388e3c;
+      transform: scale(1.1);
     }
 
     .thank-you {
@@ -51,32 +50,39 @@
   <h1>Merhaba Utku! Günün nasıldı?</h1>
   <p>Gününü puanlamak için bir sayıya tıkla:</p>
 
-  <div class="buttons">
-    <!-- JavaScript will generate 10 buttons here -->
-  </div>
+  <div class="buttons" id="buttonContainer"></div>
 
   <div class="thank-you" id="teşekkürler">
     Puanladığın için teşekkürler!
   </div>
 
   <script>
-    const container = document.querySelector('.buttons');
-    const thankYou = document.getElementById('thankYou');
+    const container = document.getElementById('buttonContainer');
+    const teşekkürler = document.getElementById('teşekkürler');
+
+    const colors = [
+      '#8B0000', // 1 - koyu kırmızı
+      '#B22222',
+      '#DC143C',
+      '#FF4500',
+      '#FFA500', // 5 - turuncu
+      '#9ACD32',
+      '#7CFC00',
+      '#32CD32',
+      '#228B22',
+      '#006400'  // 10 - koyu yeşil
+    ];
 
     for (let i = 1; i <= 10; i++) {
       const btn = document.createElement('button');
       btn.textContent = i;
+      btn.style.backgroundColor = colors[i - 1];
       btn.onclick = () => {
-        console.log(`Utku rated: ${i}`);
+        console.log(`Utku puanladı: ${i}`);
         teşekkürler.style.display = 'block';
       };
       container.appendChild(btn);
     }
   </script>
-</body>
-</html>
-
-    <button type="submit">Submit</button>
-  </form>
 </body>
 </html>
