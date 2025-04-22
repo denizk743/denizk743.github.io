@@ -6,40 +6,76 @@
   <style>
     body {
       font-family: sans-serif;
-      background: #f0f8ff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      text-align: center;
+      background: #f9f9f9;
       padding: 50px;
     }
+
     h1 {
       color: #333;
     }
-    form {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
     }
+
     button {
-      margin-top: 10px;
-      padding: 8px 16px;
+      width: 50px;
+      height: 50px;
+      font-size: 18px;
       border: none;
-      background-color: #4CAF50;
+      border-radius: 50%;
+      background-color: #4caf50;
       color: white;
-      border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.2s;
     }
+
     button:hover {
-      background-color: #45a049;
+      background-color: #388e3c;
+    }
+
+    .thank-you {
+      display: none;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #007700;
     }
   </style>
 </head>
 <body>
   <h1>How was your day, Utku?</h1>
-  <form>
-    <label for="rating">Rate your day (1 = worst, 10 = best):</label><br><br>
-    <input type="number" id="rating" name="rating" min="1" max="10" required><br><br>
+  <p>Click a number to rate your happiness:</p>
+
+  <div class="buttons">
+    <!-- JavaScript will generate 10 buttons here -->
+  </div>
+
+  <div class="thank-you" id="thankYou">
+    Thank you for your rating!
+  </div>
+
+  <script>
+    const container = document.querySelector('.buttons');
+    const thankYou = document.getElementById('thankYou');
+
+    for (let i = 1; i <= 10; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      btn.onclick = () => {
+        console.log(`Utku rated: ${i}`);
+        thankYou.style.display = 'block';
+      };
+      container.appendChild(btn);
+    }
+  </script>
+</body>
+</html>
+
     <button type="submit">Submit</button>
   </form>
 </body>
