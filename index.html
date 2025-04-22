@@ -81,14 +81,13 @@
       '#006400'  // 10 - koyu yeşil
     ];
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxpPORzNJLW2DXChUwadlOMTBLhIh6HP0Txl0MvTLyb58TmeTZtCJnLtU6AIL9XXvp-iA/exec"; //
+    const scriptURL = "YOUR_WEB_APP_URL_HERE"; // 👈 replace this with your Google Apps Script URL
 
     for (let i = 1; i <= 10; i++) {
       const btn = document.createElement('button');
       btn.textContent = i;
       btn.style.backgroundColor = colors[i - 1];
       btn.onclick = () => {
-        // Send to Google Sheets
         fetch(scriptURL, {
           method: "POST",
           body: JSON.stringify({ rating: i }),
@@ -105,5 +104,15 @@
       container.appendChild(btn);
     }
   </script>
+
+  <!-- Image at the bottom -->
+  <div style="margin-top: 40px; text-align: center;">
+    <img 
+      src="https://storage.googleapis.com/travel-web-app-1.appspot.com/flamelink/media/Chinstrap%20penguin%20-%20Canva%20-%20ValerieVS.jpg?GoogleAccessId=firebase-adminsdk-g2s60%40travel-web-app-1.iam.gserviceaccount.com&Expires=16725243600&Signature=KM6LHD4pgQLBZBR4FDT64y1%2BcK1Mno1zILFLXtAUf804ffPV6kqABEGgIxYEBAe9PWtgBFvsscRUcgCiLwY%2Bh072mOb66zFGPKzxCjh4g5k%2B4tD5Ib0HZm%2F3gFArU%2B4hvpgIkPlaPBpzbYGQtB09IQLpK2UZS2GkHbyOciIwnmLT4wXuNXmYyqK5%2FnSSXqFhevc3yxVLrrcABrZB371O%2BEWyQ5LWDQcC8H1OOUoUGK7cKIrOxSdu7IEtCHSdSzxCqai8b1Rdoa64JV%2BTaqY83crW7Xzh6z62lWVGtKQT7n0DZGiIZk0uzA7tujP5rC0GZfJm9rAmschyc%2BM6WImngA%3D%3D" 
+      alt="Penguen" 
+      width="300" 
+      style="border-radius: 10px; box-shadow: 0 0 10px #aaa;">
+  </div>
 </body>
 </html>
+
