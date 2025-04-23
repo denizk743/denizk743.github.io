@@ -35,7 +35,7 @@
       margin-top: 20px;
     }
 
-    button {
+    button.rating {
       width: 50px;
       height: 50px;
       font-size: 18px;
@@ -46,7 +46,7 @@
       transition: transform 0.2s;
     }
 
-    button:hover {
+    button.rating:hover {
       transform: scale(1.1);
     }
 
@@ -73,15 +73,22 @@
     <div class="buttons" id="buttonContainer"></div>
 
     <div id="thankYou">Puanladığın için teşekkürler!</div>
+
+    <form id="ratingForm" method="POST" action="https://script.google.com/macros/s/AKfycbxpPORzNJLW2DXChUwadlOMTBLhIh6HP0Txl0MvTLyb58TmeTZtCJnLtU6AIL9XXvp-iA/exec" target="invisibleFrame">
+      <input type="hidden" name="rating" id="ratingInput">
+    </form>
+
+    <iframe name="invisibleFrame" style="display:none;"></iframe>
   </div>
 
-  <img 
-    class="penguin"
+  <img class="penguin"
     src="https://storage.googleapis.com/travel-web-app-1.appspot.com/flamelink/media/Chinstrap%20penguin%20-%20Canva%20-%20ValerieVS.jpg?GoogleAccessId=firebase-adminsdk-g2s60%40travel-web-app-1.iam.gserviceaccount.com&Expires=16725243600&Signature=KM6LHD4pgQLBZBR4FDT64y1%2BcK1Mno1zILFLXtAUf804ffPV6kqABEGgIxYEBAe9PWtgBFvsscRUcgCiLwY%2Bh072mOb66zFGPKzxCjh4g5k%2B4tD5Ib0HZm%2F3gFArU%2B4hvpgIkPlaPBpzbYGQtB09IQLpK2UZS2GkHbyOciIwnmLT4wXuNXmYyqK5%2FnSSXqFhevc3yxVLrrcABrZB371O%2BEWyQ5LWDQcC8H1OOUoUGK7cKIrOxSdu7IEtCHSdSzxCqai8b1Rdoa64JV%2BTaqY83crW7Xzh6z62lWVGtKQT7n0DZGiIZk0uzA7tujP5rC0GZfJm9rAmschyc%2BM6WImngA%3D%3D"
-    alt="Penguen">
+    alt="Penguen maskotu">
 
   <script>
     const container = document.getElementById('buttonContainer');
+    const form = document.getElementById('ratingForm');
+    const ratingInput = document.getElementById('ratingInput');
     const thankYou = document.getElementById('thankYou');
 
     const colors = [
@@ -89,34 +96,17 @@
       '#9ACD32', '#7CFC00', '#32CD32', '#228B22', '#006400'
     ];
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxpPORzNJLW2DXChUwadlOMTBLhIh6HP0Txl0MvTLyb58TmeTZtCJnLtU6AIL9XXvp-iA/exec";
-
     for (let i = 1; i <= 10; i++) {
       const btn = document.createElement('button');
+      btn.className = "rating";
       btn.textContent = i;
       btn.style.backgroundColor = colors[i - 1];
-
-      btn.addEventListener('click', () => {
-        fetch(scriptURL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ rating: i })
-        })
-        .then(response => {
-          if (response.ok) {
-            thankYou.style.display = 'block';
-            console.log(`Utku puanladı: ${i}`);
-          } else {
-            console.error("Hata: Sunucu yanıt vermedi.");
-          }
-        })
-        .catch(error => {
-          console.error("Fetch hatası:", error);
-        });
-      });
-
+      btn.onclick = (e) => {
+        e.preventDefault();
+        ratingInput.value = i;
+        form.submit();
+        thankYou.style.display = 'block';
+      };
       container.appendChild(btn);
     }
   </script>
