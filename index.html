@@ -76,12 +76,12 @@
 
     <div class="buttons" id="buttonContainer"></div>
 
-    <div class="thank-you" id="teşekkürler">
+    <div class="thank-you" id="thankYou">
       Puanladığın için teşekkürler!
     </div>
   </div>
 
-  <!-- Slightly bigger penguin image at the bottom -->
+  <!-- Slightly larger penguin image -->
   <img 
     class="penguin"
     src="https://storage.googleapis.com/travel-web-app-1.appspot.com/flamelink/media/Chinstrap%20penguin%20-%20Canva%20-%20ValerieVS.jpg?GoogleAccessId=firebase-adminsdk-g2s60%40travel-web-app-1.iam.gserviceaccount.com&Expires=16725243600&Signature=KM6LHD4pgQLBZBR4FDT64y1%2BcK1Mno1zILFLXtAUf804ffPV6kqABEGgIxYEBAe9PWtgBFvsscRUcgCiLwY%2Bh072mOb66zFGPKzxCjh4g5k%2B4tD5Ib0HZm%2F3gFArU%2B4hvpgIkPlaPBpzbYGQtB09IQLpK2UZS2GkHbyOciIwnmLT4wXuNXmYyqK5%2FnSSXqFhevc3yxVLrrcABrZB371O%2BEWyQ5LWDQcC8H1OOUoUGK7cKIrOxSdu7IEtCHSdSzxCqai8b1Rdoa64JV%2BTaqY83crW7Xzh6z62lWVGtKQT7n0DZGiIZk0uzA7tujP5rC0GZfJm9rAmschyc%2BM6WImngA%3D%3D"
@@ -89,7 +89,7 @@
   
   <script>
     const container = document.getElementById('buttonContainer');
-    const teşekkürler = document.getElementById('teşekkürler');
+    const thankYou = document.getElementById('thankYou');
 
     const colors = [
       '#8B0000', '#B22222', '#DC143C', '#FF4500', '#FFA500',
@@ -112,7 +112,7 @@
         })
         .then(res => {
           console.log(`Utku puanladı: ${i}`);
-          teşekkürler.style.display = 'block';
+          thankYou.style.display = 'block';
         })
         .catch(err => console.error("Hata:", err));
       };
@@ -121,4 +121,3 @@
   </script>
 </body>
 </html>
-
